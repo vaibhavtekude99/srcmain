@@ -1,0 +1,49 @@
+<header class="main-header">
+  <div>
+      <a href="index.html" class="main-header__brand">Employee Travel</a>
+  </div>
+  <nav class="main-nav">
+      <ul class="main-nav__items">
+          <li class="main-nav__item">
+              <a routerLink="gotologin">Login</a>
+          </li>
+      </ul>
+  </nav>
+</header>
+<router-outlet></router-outlet>
+
+
+<div class="container" [hidden]="submitted">
+  <h3>Add New Employee</h3>
+  <form  (ngSubmit)="onFormClick()">
+      <div class="row">
+          <div class="col-25">
+              <label for="fname">Name</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="fname" name="name" [(ngModel)]="employee.name">
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+              <label for="salary">salary</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="lname" name="salary" [(ngModel)]="employee.salary">
+          </div>
+      </div>
+      <div class="row">
+          <input type="submit" value="Add New Employee">
+      </div>
+  </form>
+</div>
+<div class="container" [hidden]="!submitted">
+
+  <p>Employee Added successFully</p>
+  <div class="row">
+      <input type="button" (click)="goToHome()" value="Back To Home">
+
+  </div>
+</div>
+
+
